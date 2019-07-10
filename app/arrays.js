@@ -10,13 +10,27 @@ exports.arraysAnswers = {
     return -1;
   },
 
-  sum: function(arr) {},
+  sum: function(arr) {
+    return arr.reduce((acc, cv) => acc + cv);
+  },
 
-  remove: function(arr, item) {},
+  remove: function(arr, item) {
+    return arr.filter(currentItem => currentItem !== item);
+  },
 
-  removeWithoutCopy: function(arr, item) {},
+  removeWithoutCopy: function(arr, item) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+      if (arr[i] === item) {
+        arr.splice(i, 1);
+      }
+    }
+    return arr;
+  },
 
-  append: function(arr, item) {},
+  append: function(arr, item) {
+    arr.push(item);
+    return arr;
+  },
 
   truncate: function(arr) {},
 
