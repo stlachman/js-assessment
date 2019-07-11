@@ -58,18 +58,40 @@ exports.arraysAnswers = {
   },
 
   count: function(arr, item) {
-    let count = 0;
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === item) {
-        count++;
-      }
-    }
-    return count;
+    // let count = 0;
+    // for (let i = 0; i < arr.length; i++) {
+    //   if (arr[i] === item) {
+    //     count++;
+    //   }
+    // }
+    // return count;
+    return arr.filter(currrentItem => currrentItem === item).length;
   },
 
-  duplicates: function(arr) {},
+  duplicates: function(arr) {
+    const duplicates = [];
+    for (let i = 0; i < arr.length; i++) {
+      if (
+        arraysAnswers.count(arr, arr[i]) > 1 &&
+        !duplicates.includes(arr[i])
+      ) {
+        duplicates.push(arr[i]);
+      }
+    }
+    return duplicates;
+  },
 
-  square: function(arr) {},
+  square: function(arr) {
+    return arr.map(num => num * num);
+  },
 
-  findAllOccurrences: function(arr, target) {}
+  findAllOccurrences: function(arr, target) {
+    return arr
+      .map((item, idx) => {
+        if (item === target) {
+          return idx;
+        }
+      })
+      .filter(item => item !== undefined);
+  }
 };
