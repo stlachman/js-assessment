@@ -32,17 +32,40 @@ exports.arraysAnswers = {
     return arr;
   },
 
-  truncate: function(arr) {},
+  truncate: function(arr) {
+    arr.pop();
+    return arr;
+  },
 
-  prepend: function(arr, item) {},
+  prepend: function(arr, item) {
+    arr.unshift(item);
+    return arr;
+  },
 
-  curtail: function(arr) {},
+  curtail: function(arr) {
+    arr.shift();
+    return arr;
+  },
 
-  concat: function(arr1, arr2) {},
+  concat: function(arr1, arr2) {
+    const merged = arr1.concat(arr2);
+    return merged;
+  },
 
-  insert: function(arr, item, index) {},
+  insert: function(arr, item, index) {
+    arr.splice(index, 0, item);
+    return arr;
+  },
 
-  count: function(arr, item) {},
+  count: function(arr, item) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] === item) {
+        count++;
+      }
+    }
+    return count;
+  },
 
   duplicates: function(arr) {},
 
